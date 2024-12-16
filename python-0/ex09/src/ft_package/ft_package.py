@@ -1,3 +1,2 @@
 def count_in_list(lst : list, string : str) -> int:
-    pass
-
+    return lst.count(string)
