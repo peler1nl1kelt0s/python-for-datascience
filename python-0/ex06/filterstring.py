@@ -14,13 +14,14 @@ def main():
         if arg_len != 3:
             raise AssertionError("AssertionError: the arguments are bad")
         else:
-            string = sys.argv[1]
-            size = int(sys.argv[2])
+            try:
+                string = sys.argv[1]
+                size = int(sys.argv[2])
+            except ValueError:
+                raise AssertionError("AssertionError: the arguments are bad")
         result = list(ft_filter(function=lambda word: len(word) > size,
                                 iterable=string.split()))
         print(result)
-    except ValueError as msg:
-        print(ValueError.__name__ + ":", msg)
     except AssertionError as msg:
         print(AssertionError.__name__ + ":", msg)
 
