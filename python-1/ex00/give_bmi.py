@@ -1,12 +1,14 @@
-"""
-    squaring your height in metres: 1.70 x 1.70 = 2.89
-    dividing your weight in kilograms: 70 ÷ 2.89 = 24.22
-"""
-
 def bmi_calculate(height : int | float, weight : int | float) -> float:
+    """
+        this function calculate Body Mass Index and returning
+    """
     return weight / (height * height)
 
 def give_bmi(height: list[int | float], weight: list[int | float]) -> list[int | float]:
+    """
+        this function calculate Body Mass Index and returning every for
+        given lists as arguments and returning
+    """
     result = []
     try:
         if (len(height) != len(weight)):
@@ -19,6 +21,10 @@ def give_bmi(height: list[int | float], weight: list[int | float]) -> list[int |
     return result
 
 def apply_limit(bmi: list[int | float], limit: int) -> list[bool]:
+    """
+        this function create a limit and if a list value above of limit
+        then gets true bool value and storage in a list.
+    """
     result = []
     for i in bmi:
         if i > limit:
