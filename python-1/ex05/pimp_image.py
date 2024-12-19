@@ -3,6 +3,10 @@ from matplotlib import pyplot as plt
 
 
 def plotting_and_saving(array, name, return_name) -> np.ndarray:
+    """
+    this function plotting the array and saved like a file.
+    And return array values
+    """
     plt.imshow(array)
     plt.title(name)
     plt.savefig(return_name)
@@ -10,6 +14,10 @@ def plotting_and_saving(array, name, return_name) -> np.ndarray:
 
 
 def rgb_converter_to_zero(array: np.ndarray, index, name, return_name):
+    """
+    This function with given value makes matrix equal to zero.
+    Made it for more modularity
+    """
     array[:, :, index[0]] = 0
     array[:, :, index[1]] = 0
     return plotting_and_saving(array=array, name=name, return_name=return_name)
