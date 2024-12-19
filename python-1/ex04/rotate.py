@@ -1,7 +1,25 @@
 from load_image import ft_load
-import cv2 as cv2
+# import cv2 as cv2
 import sys
 from matplotlib import pyplot as plt
+import numpy as np
+
+
+def rotate_90_right(matrix):
+    """
+        This function gets a matrix and rotate 90 degree to left.
+        Arguments: gets list
+        rows: rows of list
+        cols: columns of list
+        rotated: firstly initializing is empty but after that
+        being rotated image
+    """
+    rows, cols = len(matrix), len(matrix[0])
+    rotated = np.array([[0] * rows for _ in range(cols)])
+    for i in range(rows):
+        for j in range(cols):
+            rotated[cols - j - 1][i] = matrix[i][j]
+    return rotated
 
 
 def main():
@@ -34,10 +52,10 @@ def main():
         zoom_image = image[start_y:end_y, start_x:end_x, 0]
         print("The shape of image is: (400, 400, 1) or (400, 400)")
         print(zoom_image)
-        print("New shape after Transpose: (400, 400)")
-        rotated_image = cv2.rotate(zoom_image, cv2.ROTATE_90_COUNTERCLOCKWISE)
+        rotated_image = rotate_90_right(zoom_image)
+        print(f"New shape after Transpose: {rotated_image.shape}")
         print(rotated_image)
-        plt.imshow(rotated_image)
+        plt.imshow(rotated_image, cmap="gray")
         plt.title("Rotated Image")
         plt.savefig("rotated.jpeg")
     except AssertionError as msg:
