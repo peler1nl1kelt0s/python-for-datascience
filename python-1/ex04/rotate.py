@@ -1,4 +1,5 @@
 from load_image import ft_load
+import cv2 as cv2
 import sys
 from matplotlib import pyplot as plt
 
@@ -24,21 +25,25 @@ def main():
         image = ft_load(sys.argv[1])
         if image is None:
             raise AssertionError("Wrong image path!")
-        print(image)
         new_height, new_width = 400, 400
         center_x, center_y = image.shape[0] // 2, image.shape[1] // 2
         start_y = center_y - new_height // 2
         start_x = center_x - new_width // 2
         end_y = center_y + new_height // 2
         end_x = center_x + new_width // 2
-        zoomed_image = image[start_y:end_y, start_x:end_x, 0]
-        plt.imshow(zoomed_image)
-        plt.title("Zoomed Image")
-        plt.savefig("zoomed.jpeg")
+        zoom_image = image[start_y:end_y, start_x:end_x, 0]
         print("The shape of image is: (400, 400, 1) or (400, 400)")
-        print(zoomed_image)
+        print(zoom_image)
+        print("New shape after Transpose: (400, 400)")
+        rotated_image = cv2.rotate(zoom_image, cv2.ROTATE_90_COUNTERCLOCKWISE)
+        print(rotated_image)
+        plt.imshow(rotated_image)
+        plt.title("Rotated Image")
+        plt.savefig("rotated.jpeg")
     except AssertionError as msg:
         print("\033[31m", AssertionError.__name__ + ":", msg, "\033[0m")
+    except Exception as e:
+        print(f"An unexpected error occurred: {str(e)}")
 
 
 if __name__ == "__main__":
