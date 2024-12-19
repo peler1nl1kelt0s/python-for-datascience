@@ -16,7 +16,7 @@ def give_bmi(h: list[int | float], w: list[int | float]) -> list[int | float]:
             raise ValueError("You gived wrong number list!")
 
         for i in range(len(h)):
-            result.append(bmi_calculate(h=h[i], w=w[i]))
+            result.append(bmi_calculate(h[i], w[i]))
     except ValueError as msg:
         print(ValueError.__name__ + ":", msg)
     return result
