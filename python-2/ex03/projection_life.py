@@ -3,6 +3,11 @@ from matplotlib import pyplot as plt
 
 
 def main():
+    """
+    Main function to load, process, and plot population
+    data for the given csvs. Focusing 1900 year and
+    plotting life expectancy per year vs income per person.
+    """
     try:
         inc = load("income_per_person_gdppercapita_ppp_inflation_adjusted.csv")
         data_life = load("life_expectancy_years.csv")

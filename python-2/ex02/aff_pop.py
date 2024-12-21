@@ -34,7 +34,7 @@ def main():
                    ["1800", "1840", "1880", "1920", "1960", "2000", "2040"])
         plt.legend(loc=4)
         plt.show()
-    except FileNotFoundError as msg:
+    except FileNotFoundError:
         return
     except Exception as msg:
         print(f"Unexpected error! {msg}")
