@@ -32,7 +32,7 @@ def main():
     plt.ylabel("Life Expectancy")
     plt.xscale("log")
     plt.xticks(ticks=[300, 1000, 10000], labels=['300', '1k', '10k'])
-    # plt.tight_layout()
-    plt.savefig("life-vs-gross.jpg")
+    plt.tight_layout()
+    plt.show()
 if __name__ == "__main__":
     main()
