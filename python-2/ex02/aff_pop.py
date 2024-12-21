@@ -11,8 +11,7 @@ def main():
     try:
         data = load("population_total.csv")
         if data is None:
-            raise FileNotFoundError("CSV file not found \
-                                    or could not be loaded.")
+            raise FileNotFoundError()
         data.set_index("country", inplace=True)
         data = pd.concat([data.loc["Turkey", "1800":"2050"],
                           data.loc["Germany", "1800":"2050"]], axis=1)
@@ -36,7 +35,7 @@ def main():
         plt.legend(loc=4)
         plt.show()
     except FileNotFoundError as msg:
-        print(f"Error: {msg}")
+        return
     except Exception as msg:
         print(f"Unexpected error! {msg}")
 

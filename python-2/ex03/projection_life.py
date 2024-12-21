@@ -6,6 +6,8 @@ def main():
     try:
         inc = load("income_per_person_gdppercapita_ppp_inflation_adjusted.csv")
         data_life = load("life_expectancy_years.csv")
+        if inc is None or data_life is None:
+            raise FileNotFoundError()
         inc.set_index("country", inplace=True)
         data_life.set_index("country", inplace=True)
         inc = inc.loc[:, "1900"]

@@ -9,6 +9,8 @@ def main():
     """
     try:
         data = load("life_expectancy_years.csv")
+        if data is None:
+            raise FileNotFoundError()
         data.set_index("country", inplace=True)
         turkey_data = data.loc["Turkey"]
         turkey_data.index = turkey_data.index.astype(int)
