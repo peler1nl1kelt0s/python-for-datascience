@@ -15,5 +15,7 @@ def load(path: str) -> pd.DataFrame:
         return data
     except FileNotFoundError as msg:
         print("Csv file not found!")
+        return None
     except Exception as msg:
         print(Exception.__name__ + ": " + msg)
+        return None
