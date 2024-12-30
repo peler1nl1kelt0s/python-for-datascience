@@ -11,7 +11,7 @@ class Character(ABC):
         :param first_name: The first name of the character.
         :param is_alive: Boolean representing if the character is alive. Defaults to True.
         """
-        self.name = name
+        self.first_name = name
         self.is_alive = is_alive
 
     def die(self):
