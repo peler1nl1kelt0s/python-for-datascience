@@ -1,7 +1,13 @@
 def mean(args: list):
+    """
+    This function returns mean of a list
+    """
     return sum(args) / len(args)
 
 def sort(arg: list):
+    """
+    This function returns sorted of a list
+    """
     result = []
     
     while arg:
@@ -16,6 +22,9 @@ def sort(arg: list):
     return result
 
 def median(args: list):
+    """
+    This function returns median of a list
+    """
     sorted = sort(args.copy())
     mid = len(sorted) // 2
     if len(sorted) % 2 == 0:
@@ -24,22 +33,35 @@ def median(args: list):
         return sorted[mid]
 
 def quartile(args: list):
+    """
+    This function returns quartile of a list
+    """
     sorted = sort(args)
     q1 = float(median(sorted[:len(sorted) // 2 + 1]))
     q3 = float(median(sorted[len(sorted) // 2:]))
     return [q1,q3]
 
 def std(args: list):
+    """
+    This function returns standart devision of a list
+    """
     mean_value = mean(args)
     variance = sum([(i - mean_value) ** 2 for i in args])
     return (variance / len(args)) ** (1/2)
 
 def var(args: list):
+    """
+    This function returns variance of a list
+    """
     mean_value = mean(args)
     variance = sum([(i - mean_value) ** 2 for i in args])
     return (variance / len(args))
 
 def ft_statistics(*args: any, **kwargs: any) -> None:
+    """
+    This function Calculate all of things like
+    standar devision, variance, median, mean etc.
+    """
     try:
         if not args:
             data = None
