@@ -7,4 +7,7 @@ def generate_id() -> str:
 
 @dataclass
 class Student:
-    pass
+    def __init__(self, name : str, surname : str):
+        self.name = name
+        self.surname = surname
+    
