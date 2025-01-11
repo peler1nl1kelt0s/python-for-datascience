@@ -7,6 +7,11 @@ def generate_id() -> str:
 
 @dataclass
 class Student:
-    def __init__(self, name : str, surname : str):
-        self.name = name
-        self.surname = surname
+    name : str = field(init=True)
+    surname : str = field(init=True)
+    active : bool = field(init=False, default=True)
+    login : str = field(init=False)
+    id : str = field(init=False, default=generate_id())
+
+    def __post_init__(self):
+        self.login = self.name[0].capitalize() + self.surname.lower()
