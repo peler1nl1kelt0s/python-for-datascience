@@ -4,12 +4,12 @@ def mean(args: list):
     """
     return sum(args) / len(args)
 
+
 def sort(arg: list):
     """
     This function returns sorted of a list
     """
     result = []
-    
     while arg:
         min_val = float('inf')
         min_index = -1
@@ -20,6 +20,7 @@ def sort(arg: list):
         result.append(min_val)
         arg.pop(min_index)
     return result
+
 
 def median(args: list):
     """
@@ -32,6 +33,7 @@ def median(args: list):
     else:
         return sorted[mid]
 
+
 def quartile(args: list):
     """
     This function returns quartile of a list
@@ -39,7 +41,8 @@ def quartile(args: list):
     sorted = sort(args)
     q1 = float(median(sorted[:len(sorted) // 2 + 1]))
     q3 = float(median(sorted[len(sorted) // 2:]))
-    return [q1,q3]
+    return [q1, q3]
+
 
 def std(args: list):
     """
@@ -49,6 +52,7 @@ def std(args: list):
     variance = sum([(i - mean_value) ** 2 for i in args])
     return (variance / len(args)) ** (1/2)
 
+
 def var(args: list):
     """
     This function returns variance of a list
@@ -56,6 +60,7 @@ def var(args: list):
     mean_value = mean(args)
     variance = sum([(i - mean_value) ** 2 for i in args])
     return (variance / len(args))
+
 
 def ft_statistics(*args: any, **kwargs: any) -> None:
     """

@@ -6,11 +6,13 @@ def square(x: int | float) -> int | float:
     x = x ** 2
     return x
 
+
 def pow(x: int | float) -> int | float:
     """
     This function returns powder with yourself
     """
     return x ** x
+
 
 def outer(x: int | float, function) -> object:
     """
@@ -19,6 +21,7 @@ def outer(x: int | float, function) -> object:
     before result.
     """
     count = 0
+
     def inner() -> float:
         nonlocal count
         if count == 0:
